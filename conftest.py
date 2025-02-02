@@ -1,12 +1,6 @@
-import pytest
-from selenium import webdriver
+import sys
+import os
 
-@pytest.fixture
-def driver(path):
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(5)
-
-    driver.get(f"https://qa-scooter.praktikum-services.ru/{path}")
-    yield driver
-
-    driver.quit()
+# Добавляем корневую директорию проекта в PYTHONPATH
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_root) 
